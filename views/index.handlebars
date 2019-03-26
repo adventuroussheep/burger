@@ -1,0 +1,88 @@
+<div id="wrapper">
+
+
+    <div id="header">
+        <h1>Burger Time</h1>
+        <div id="burgerPic"></div>
+
+    </div>
+
+
+
+    {{!-- Div for burgers ready to be eaten --}}
+    <div id="leftDiv">
+        <div id="leftBackground">
+
+
+        <h2>Time to chow down</h2>
+        <ul>
+            {{#each burgers}}
+            {{#unless this.devoured}}
+            {{>burgers/burger-block devoured=1}}
+            {{/unless}}
+            {{/each}}
+        </ul>
+
+        </div>
+    </div>
+
+
+    {{!-- Div for eaten burgers --}}
+    <div id="rightDiv">
+        <div id="rightBackground">
+
+
+        <h2>Burgers devoured</h2>
+        <ul>
+            {{#each burgers}}
+            {{#if this.devoured}}
+            <li>
+                {{this.id}}. {{this.burger_name}}
+            </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+        </div>
+    </div>
+
+
+
+    {{!-- Div for adding burger --}}
+    <div id="bottomDiv">
+
+        <h2>Add a burger</h2>
+        {{!-- form action post --}}
+        <form class="create-form" action="/" method="POST">
+            <div class="form-group">
+                <label for="burgerName">Burger Name:</label>
+                <input type="text" id="#burgerName" name="burger_name">
+            </div>
+            <br>
+            <button type="submit">Add burger</button>
+        </form>
+    </div>
+
+</div>
+
+
+{{!-- Changes buger state to devoured --}}
+
+<script type="text/javascript">
+    $(function () {
+        $(".eatBurger").on("click", function () {
+            var id = $(this).data("id");
+            var isDevoured = $(this).data("devour");
+
+            var newDevouredState = {
+                devoured: isDevoured
+            };
+            $.ajax("/api/burgers/" + id, {
+                type: "PUT",
+                data: newDevouredState
+            }).then(function () {
+                location.reload();
+            })
+
+        });
+    });
+</script>

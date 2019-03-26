@@ -1,0 +1,10 @@
+<li>
+    {{!-- Displays Devour button for uneaten burgers --}}
+    {{this.id}}. {{this.burger_name}}
+       <button class="eatBurger" data-id="{{id}}" data-devour="{{devoured}}">
+           {{#if devoured}}Devour!{{/if}}
+           
+       </button>
+
+
+</li>

@@ -1,0 +1,66 @@
+li{
+    padding: 10px;
+    list-style: none;
+}
+
+h1{
+    font-size: 40px;
+}
+
+#wrapper{
+    /* background-image: url("../images/background.jpeg"); */
+    background-image: url("../images/bob_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-template-columns: 5% auto auto 5%;
+    grid-template-rows: auto auto auto;
+    display: grid;
+}
+
+#burgerPic{
+    padding: 120px;
+    background-image: url("../images/burger.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 300px 200px;    
+}
+
+#header{
+    text-align: center;
+    grid-area: 1/1/1/4;
+}
+
+#leftDiv{
+    text-align: center;
+    grid-area: 2/2/2/2;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#leftBackground{
+    padding: 10px;
+    background-color: rgb(255, 255, 0, 0.8);
+    border: 2px solid black;
+}
+
+#rightDiv{
+    text-align: center;
+    grid-area: 2/3/2/3;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#rightBackground{
+    padding: 10px;
+    background-color: rgba(255, 0, 0, .8);
+    border: 2px solid black;
+}
+
+#bottomDiv{
+    text-align: center;
+    grid-area:3/2/3/4;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, .8);
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
